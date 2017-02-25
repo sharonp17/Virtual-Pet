@@ -1,0 +1,6 @@
+c:\users\wecancodeit\documents\visual studio 2015\Projects\DigiPet\DigiPet\bin\Debug\DigiPet.exe.config
+c:\users\wecancodeit\documents\visual studio 2015\Projects\DigiPet\DigiPet\bin\Debug\DigiPet.exe
+c:\users\wecancodeit\documents\visual studio 2015\Projects\DigiPet\DigiPet\bin\Debug\DigiPet.pdb
+c:\users\wecancodeit\documents\visual studio 2015\Projects\DigiPet\DigiPet\obj\Debug\DigiPet.csprojResolveAssemblyReference.cache
+c:\users\wecancodeit\documents\visual studio 2015\Projects\DigiPet\DigiPet\obj\Debug\DigiPet.exe
+c:\users\wecancodeit\documents\visual studio 2015\Projects\DigiPet\DigiPet\obj\Debug\DigiPet.pdb
