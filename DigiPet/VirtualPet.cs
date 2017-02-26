@@ -10,34 +10,27 @@ namespace DigiPet
     {
 //fields
         private string petName;
-        private string color;
-        private int petAge;
         private bool hunger; //should these be float? set to 0-5?
         private bool tired;
         private bool bored;
         private bool thirst;
+        private bool userChoice;
 
+        public int tick;
 //Constructors
-        public VirtualPet(string petName, string color, int petAge)
+        public VirtualPet(string petName)
         {
             this.petName = Name;
-            this.color = Color;
-            this.petAge = petAge;
-
-            
-        }
-        public VirtualPet(bool hunger, bool tired, bool bored, bool thirst)
-        {
-            this.hunger = hunger;
-            this.tired = tired;
-            this.bored = bored;
-            this.thirst = thirst;
         }
 
         public VirtualPet()
-        {
+        {          
+            hunger = false;
+            tired = true;
+            bored = false;
+            thirst = true;
+        } 
 
-        }
 // Properties
         public string Name
         {
@@ -45,35 +38,154 @@ namespace DigiPet
             set { this.petName = value; }
         }
 
-        public string Color
+        public bool Hunger
         {
-            get { return this.color; }
-            set { this.color = value; }
-           
+            get { return this.hunger; }
+            set
+            {
+                if (hunger)
+                {
+                    Console.WriteLine("I'm Hungry");
+                }
+                else
+                {
+                    Console.WriteLine("I'm not hungry");                
+                }
+                this.hunger = value;
+            }
+        }
+        public bool Fatigue
+        {
+            get { return this.tired; }
+            set { this.tired = value; }
         }
 
-        public int PetAge
+        public bool Boredom
         {
-            get { return this.petAge; }
-            set { this.petAge = value; }
-           
+            get { return this.bored; }
+            set { this.bored = value; }
         }
-//
+
+        public bool Thirst
+        {
+            get { return this.thirst; }
+            set { this.thirst = value; }
+        }
+
+        public bool UserChoice
+        {
+            get { return this.userChoice; }
+            set { this.userChoice = value; }
+        }
+// METHODS
         public void PetInfo()
         {
             Console.WriteLine(this.petName);
-            Console.WriteLine(this.color);
-            Console.WriteLine(this.petAge);
+
+        }
+        public void Status()
+        {
+            Console.WriteLine(this.hunger);
+            Console.WriteLine(this.tired);
+            Console.WriteLine(this.bored);
+            Console.WriteLine(this.thirst);
         }
 
-        public void CurrentState()
+        public bool Hungry()
         {
-            //Console.WriteLine("Hunger" +);
-            //Console.WriteLine("Fatigue" +);
-            //Console.WriteLine("Boredome" +);
-            //Console.WriteLine("Thirst" +);
+            //bool hunger = true;// how  too set bool to true
+            if (hunger == true) // do i have to declare userchoice somewhere? Where do I put this.hunger?
+            {
+                Console.WriteLine("This tasts great!");
+                System.Threading.Thread.Sleep(2000);
+            }
+            else
+            {
+                Console.WriteLine("I'm not hungry");
+                System.Threading.Thread.Sleep(2000);
+            }
+            return this.hunger;
+
+        }
+        public bool Bored()
+        {
+            
+            if (bored == true)
+            {
+                Console.WriteLine("This is soo Fun!");
+                System.Threading.Thread.Sleep(2000);
+            }
+            else
+            {
+                Console.WriteLine("I'm not bored, Leave me alone");
+                System.Threading.Thread.Sleep(2000);
+            }
+            return this.bored;
+        }
+
+        public bool Tired()
+        {
+            
+            if (tired == true)
+            {
+                Console.WriteLine("I'm going to sleep now. See you after I wake up");
+                System.Threading.Thread.Sleep(2000);
+            }
+            else
+            {
+                Console.WriteLine("I'm not tired yet!");
+                System.Threading.Thread.Sleep(2000);
+            }
+            return this.tired;
+        }
+
+        public bool Thirsty()
+        {
+            
+            if (thirst == true)
+            {
+                Console.WriteLine("Mmm, that's refreshing");
+                System.Threading.Thread.Sleep(2000);
+            }
+            else
+            {
+                Console.WriteLine("No thank you, I'm not thirsty");
+                System.Threading.Thread.Sleep(2000);
+            }
+            return this.thirst;
+        }
+
+         public void Tick()
+        {
+            Random rng = new Random();
+            tick = rng.Next(0, 3);
+            if (tick == 0)
+            {
+                hunger = true;
+                bored = true;
+                tired = false;
+                thirst = false;
+            }
+            else if (tick == 1)
+            {
+                hunger = false;
+                bored = false;
+                tired = true;
+                thirst = true;
+            }
+            else 
+            {
+                hunger = true;
+                bored = false;
+                tired = true;
+                thirst = false;         
+            }
+
+        }
         }
     }
-}
+
+
+
 
 
