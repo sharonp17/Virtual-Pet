@@ -8,9 +8,9 @@ namespace DigiPet
 {
     class VirtualPet
     {
-//fields
+//Fields
         private string petName;
-        private bool hunger; //should these be float? set to 0-5?
+        private bool hunger; 
         private bool tired;
         private bool bored;
         private bool thirst;
@@ -38,12 +38,12 @@ namespace DigiPet
             set { this.petName = value; }
         }
 
-        public bool Hunger
+        public bool Feed
         {
             get { return this.hunger; }
             set
             {
-                if (hunger)
+                if (hunger == true)
                 {
                     Console.WriteLine("I'm Hungry");
                 }
@@ -77,37 +77,52 @@ namespace DigiPet
             get { return this.userChoice; }
             set { this.userChoice = value; }
         }
-// METHODS
+
+// Methods
         public void PetInfo()
         {
             Console.WriteLine(this.petName);
-
         }
         public void Status()
-        {
-            Console.WriteLine(this.hunger);
-            Console.WriteLine(this.tired);
-            Console.WriteLine(this.bored);
-            Console.WriteLine(this.thirst);
+        {            
+            if (this.hunger == true)
+                Console.WriteLine("I'm Hungry");
+            else
+                Console.WriteLine("I'm not hungry");
+
+            if(this.tired == true)
+                Console.WriteLine("I'm Tired");
+            else
+                Console.WriteLine("I'm not tired!");
+
+            if(this.bored == true)
+                Console.WriteLine("I'm bored!");
+            else
+                Console.WriteLine("I'm not Bored");
+
+            if(this.thirst == true)
+                Console.WriteLine("I'm thirsty!");
+            else
+                Console.WriteLine("I'm not thirsty");
         }
 
-        public bool Hungry()
+        public void GiveFood()
         {
             //bool hunger = true;// how  too set bool to true
             if (hunger == true) // do i have to declare userchoice somewhere? Where do I put this.hunger?
             {
                 Console.WriteLine("This tasts great!");
+                this.hunger = false;
                 System.Threading.Thread.Sleep(2000);
             }
             else
             {
                 Console.WriteLine("I'm not hungry");
                 System.Threading.Thread.Sleep(2000);
-            }
-            return this.hunger;
+            }            
 
         }
-        public bool Bored()
+        public bool Play()
         {
             
             if (bored == true)
@@ -123,23 +138,24 @@ namespace DigiPet
             return this.bored;
         }
 
-        public bool Tired()
+        public bool PutToSleep()
         {
             
             if (tired == true)
             {
                 Console.WriteLine("I'm going to sleep now. See you after I wake up");
-                System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(2000); //menu
             }
             else
             {
                 Console.WriteLine("I'm not tired yet!");
                 System.Threading.Thread.Sleep(2000);
+                
             }
-            return this.tired;
+            return this.bored;
         }
 
-        public bool Thirsty()
+        public bool GiveWater()
         {
             
             if (thirst == true)

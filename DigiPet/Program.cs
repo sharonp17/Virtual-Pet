@@ -13,7 +13,20 @@ namespace DigiPet
 // Virtual Pet is a digital interaction program that allows you to engage with the program in 4 ways.
 
             VirtualPet martian = new VirtualPet();
-            int userChoice;
+            string userChoice;
+
+            Console.WriteLine("                           _,..._,m,     ");
+            Console.WriteLine("                        ,/ '       'l ");
+            Console.WriteLine("                        / .           \\ ");
+            Console.WriteLine("                      ,'mmmMMMMmm.      \\ ");
+            Console.WriteLine(@"                ,m,_,'              ###) ");
+            Console.WriteLine(@"               (###%                 ###)  ;##mm.");
+            Console.WriteLine(@"                ^#/  __        ___    ;  (######)");
+            Console.WriteLine(@"                 ;  //.\\     //.\\   ;   \\####/");
+            Console.WriteLine(@"                _; (#\//      \\//-)      ,// ");
+            Console.WriteLine(@"              @##\ \##/   =   `# = mm/ ");
+            Console.WriteLine(@"              `\##>.____,...,____,<####@");
+            Console.WriteLine();
 
             Console.WriteLine(" \a  \t Welcome to your Virtual Martian Pet!");
             Console.WriteLine();
@@ -29,56 +42,67 @@ namespace DigiPet
 //show the status in true/ false scenarios. i.g. hungry/not hungry, tired/ not tired. etc. The program is wrapped in a do-while loop 
 //to keep return the menu after each user entry. 
             do
-            {
+            { 
                 martian.Tick();
+
+                Console.WriteLine("                           _,..._,m,     ");
+                Console.WriteLine("                        ,/ '       'l ");
+                Console.WriteLine("                        / .           \\ ");
+                Console.WriteLine("                      ,'mmmMMMMmm.      \\ ");
+                Console.WriteLine(@"                ,m,_,'              ###) ");
+                Console.WriteLine(@"               (###%                 ###)  ;##mm.");
+                Console.WriteLine(@"                ^#/  __        ___    ;  (######)");
+                Console.WriteLine(@"                 ;  //.\\     //.\\   ;   \\####/");
+                Console.WriteLine(@"                _; (#\//      \\//-)      ,// ");
+                Console.WriteLine(@"              @##\ \##/   =   `# = mm/ ");
+                Console.WriteLine(@"              `\##>.____,...,____,<####@");
+                Console.WriteLine(
+                    );
                 Console.WriteLine("What would you like to do with " + userPetName + "?");
                 Console.WriteLine();
+                martian.Status();
 
-                Console.WriteLine("Current Status");
-                Console.WriteLine("Hunger = {0} ", martian.Hunger);
-                Console.WriteLine("Fatigue = {0} ", martian.Fatigue);
-                Console.WriteLine("Boredome = {0} ", martian.Boredom);
-                Console.WriteLine("Thirst = {0} ", martian.Thirst);
+               
                 Console.WriteLine();
 //depending on whether or not the current status of the pet is true or false the user entry will have different effects. for example,
 //if the pet IS hungry and the user feeds the pet, the pet will accept the food. If the pet is NOT hungry the pet will tell the user
 //that they are not hungry.
 
                 Console.WriteLine("Type 1 : Feed \nType 2 : Put to bed \nType 3 : To Play with \nType 4 : to give water \n Press 5 to quit");
-                userChoice = int.Parse(Console.ReadLine());
+                userChoice = Console.ReadLine();
                 {
-                    int[] currentStatus = new int[5];
+                    string[] currentStatus = new string[5];
 
-                    currentStatus[0] = 1;
-                    currentStatus[1] = 2;
-                    currentStatus[2] = 3;
-                    currentStatus[3] = 4;
+                    currentStatus[0] = "1";
+                    currentStatus[1] = "2";
+                    currentStatus[2] = "3";
+                    currentStatus[3] = "4";
 
-                    foreach (int choice in currentStatus)
+                    foreach (string choice in currentStatus)
                     {
 
-                        if (userChoice == 1)
+                        if (userChoice == "1")
                         {
-                            martian.Hungry();
+                            martian.GiveFood();
                             break;
                         }
 
-                        else if (userChoice == 2)
+                        else if (userChoice == "2")
                         {
-                            martian.Tired();
+                            martian.PutToSleep();
                             break;
                         }
-                        else if (userChoice == 3)
+                        else if (userChoice == "3")
                         {
-                            martian.Bored();
+                            martian.Play();
                             break;
                         }
-                        else if (userChoice == 4)
+                        else if (userChoice == "4")
                         {
-                            martian.Thirsty();
+                            martian.GiveWater();
                             break;
                         }
-                        else if (userChoice == 5)
+                        else if (userChoice == "5")
                         {
                             Console.WriteLine("See you later!");
                             System.Threading.Thread.Sleep(2000);
@@ -97,7 +121,7 @@ namespace DigiPet
                 Console.Clear();
 
             }
-            while (userChoice != 5);
+            while (userChoice != "5");
         }
     }
 }
